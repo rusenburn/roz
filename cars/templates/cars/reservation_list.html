@@ -1,0 +1,16 @@
+{% extends "cars/car_base.html" %}
+
+{% block content %}
+
+{% for reservation in reservationmodel_list %}
+<a href="{% url 'cars:reservation_detail' pk=reservation.pk %}"> <div class="container">
+  <ul>
+    <li>{{reservation.reserver}}</li>
+    <li>{{reservation.offer}}</li>
+    <li>{{reservation.start_date}}</li>
+  </ul>
+
+</div></a>
+{% endfor %}
+
+{% endblock %}

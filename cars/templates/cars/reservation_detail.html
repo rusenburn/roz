@@ -1,0 +1,20 @@
+{% extends "cars/car_base.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <ul>
+    <li>Reserver : {{reservationmodel.reserver}}</li>
+    <li>Offer : {{reservationmodel.offer}}</li>
+    <li>Reservation Date : {{reservationmodel.start_date}}</li>
+    <li>Reservation Days : {{reservationmodel.days}}</li>
+    <li>First Name : {{reservationmodel.first_name}}</li>
+    <li>Last Name : {{reservationmodel.last_name}}</li>
+    <li>Age : {{reservationmodel.age}}</li>
+    <li>Delivery Location :{{reservationmodel.location}}</li>
+  </ul>
+
+
+</div>
+
+{% endblock %}

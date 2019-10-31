@@ -1,0 +1,20 @@
+{% extends "cars/car_base.html" %}
+
+
+{% block car %}
+
+<div class="jumbotron">
+  <h3>Welcome to Car Detail Page</h3>
+  <p>id {{carmodel.pk}}</p>
+  <p>title {{carmodel.title}}</p>
+  <p>Year Model {{carmodel.year_model}} </p>
+  <p>Gear Type {% if car.autogeartype %}Automatic
+    {% else %}Manual{% endif %}</p>
+  <p>Doors {{carmodel.doors}}</p>
+  <p>Seats {{carmodel.seats}}</p>
+  <p>Base Price {{carmodel.base_price}}</p>
+  <p>Description {{carmodel.description}}</p>
+  <p>Image {{carmodel.image}}</p>
+</div>
+
+{% endblock %}

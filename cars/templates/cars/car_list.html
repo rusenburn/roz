@@ -1,0 +1,65 @@
+{% extends "cars/car_base.html" %}
+
+{% block car %}
+  List of cars
+  <div class="jumbotron">
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          Title
+        </div>
+        <div class="col">
+          Year Model
+        </div>
+        <div class="col">
+          Gear Type
+        </div>
+        <div class="col">
+          Doors
+        </div>
+        <div class="col">
+          Seats
+        </div>
+        <div class="col">
+          Base Price
+        </div>
+        <div class="col">
+          Description
+        </div>
+        <div class="col">
+          Image
+        </div>
+      </div>
+
+  </div>
+    {% for car in carmodel_list %}
+<div class="jumbotron">
+
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <a href="{% url 'cars:car_detail' car.pk %}">{{car.title}}</a>
+
+          </div>
+          <div class="col d-flex justify-content-center">
+            {{car.year_model}}
+          </div><div class="col d-flex justify-content-center">
+            {% if car.autogeartype %}Automatic
+            {% else %}Manual{% endif %}
+          </div><div class="col d-flex justify-content-center">
+            {{car.doors}}
+          </div><div class="col d-flex justify-content-center">
+            {{car.seats}}
+          </div><div class="col d-flex justify-content-center">
+            {{car.base_price}}
+          </div><div class="col d-flex justify-content-center">
+            {{car.description}}
+          </div><div class="col d-flex justify-content-center">
+            {{car.image}}
+          </div>
+        </div>
+</div>
+    {% endfor %}
+
+
+
+{% endblock %}
