@@ -27,7 +27,7 @@ SECRET_KEY = '@rdt3v*r9-!2-)vsu9gqxrq(3fg7=-pf#ojhgaeek^p@&&3o&p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.2.109']
 
 
 # Application definition
@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'cars',
     'bootstrap4',
-    'accounts',
+
 
 
 
@@ -134,3 +135,7 @@ STATICFILES_DIRS = [STATICFILES_DIR,]
 # LOGIN_PAGE = 'login.html'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
+
+# Media files
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

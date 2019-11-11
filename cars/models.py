@@ -13,13 +13,42 @@ class CarModel(models.Model):
     seats = models.SmallIntegerField()
     base_price = models.PositiveIntegerField(default=1 ,blank=True)
     description = models.TextField(blank=True,max_length=500)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True , upload_to='car_profile')
+
+    class Meta:
+        default_permissions= ('change' , 'add' , 'delete' , 'view')
 
     def get_absolute_url(self) :
         return reverse('cars:car_detail', kwargs={'pk' : self.pk})
 
     def __str__(self):
         return self.title
+
+class CarCommercialModel(models.Model):
+    en_title = models.CharField(max_length=128)
+    ar_title = models.CharField(max_length=128)
+    featured = models.BooleanField()
+    car = models.ForeignKey(CarModel,on_delete='CASCADE',related_name='commercials')
+    days = models.SmallIntegerField(default=3)
+    price = models.DecimalField(max_digits=6,decimal_places=2 ,default=29.99)
+    created_date = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.en_title
+
+    def get_absolute_url(self):
+        return reverse('cars:commercial_detail',kwargs={'pk' : self.pk})
+
+    def go_featured(self):
+        self.featured = True
+        self.save()
+        print(self.featured)
+
+    def go_unfeatured(self):
+        print(self.featured)
+        self.featured = False
+        self.save()
+        print(self.featured)
 
 
 class ReservationModel(models.Model):

@@ -1,0 +1,22 @@
+{% extends "cars/car_base.html" %}
+
+{% block content %}
+
+  <div class="jumbotron jumbotron-transparent">
+    <ul>
+      <li>English Title :{{object.en_title}}</li>
+      <li>Arabic Title : {{object.ar_title}}</li>
+      <li>Featured !? : {% if object.featured %}Yes {% if request.user.is_superuser %}<a class='btn' href="{% url 'cars:commercial_unfeature' pk=object.pk  %}">Unfeature</a>{% endif %}
+         {% else %}No {% if request.user.is_superuser %}<a class='btn btn-success' href="{% url 'cars:commercial_feature' pk=object.pk %}">Feature</a>{% endif %}{% endif %}</li>
+      <li>Car : {{object.car}}</li>
+      <li>Days : {{object.days}}</li>
+      <li>Price : <span class='lined'>{% widthratio object.car.base_price 1 object.days %}</span> {{object.price}} JDs</li>
+    </ul>
+    <br>
+    {% if request.user.is_superuser %}
+    <a href="{% url 'cars:commercial_update' pk=object.pk %}"><button class='btn btn-warning' type="button" name="">Modify</button></a>
+    <a href="{% url 'cars:commercial_delete' pk=object.pk %}"><button class='btn btn-danger' type="button" name=''>Delete</button> </a>
+    {% endif %}
+  </div>
+
+{% endblock %}

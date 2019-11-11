@@ -1,11 +1,15 @@
 {% extends "./car_base.html" %}
 
 {% block car %}
+      <div class="jumbotron">
 
-      <form method="post">
-        {% csrf_token %}
-        <p>are you sure you wanna delete {{object}} ?</p>
-        <input type="submit" class='btn btn-danger' value="submit">
-      </form>
+        <form method="post">
+          {% csrf_token %}
+            <p class="alert alert-danger"role="alert"> Are you sure you wanna delete <strong>{{object}}</strong> ?</p>
+
+
+          <input type="submit" class='btn btn-danger' value="Delete">
+        </form>
+      </div>
 
 {% endblock %}

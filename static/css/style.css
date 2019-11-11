@@ -1,1 +1,47 @@
 
+body{
+  background: url('/static/imgs/jordan1.jpg') 30% 0 no-repeat fixed ;
+
+}
+
+.jumbotron-transparent{
+  background-color: rgba(233, 236, 239, 0.9);
+}
+
+.navbar-bg{
+  background-color: rgba(233, 236, 239, 0.9);
+}
+
+.navbar-bg:hover{
+  background-color: rgba(233, 236, 239, 1);
+}
+
+.cardimage {
+  width: 100%;
+  height: 30%;
+}
+
+
+.nav-link,.navbar-brand,.navbar-text{
+  color : rgb(210,210,210);
+}
+
+.navbar-custom{
+  background-color: #70C1B3;
+}
+
+/* making car cards transparent a little */
+.card-custom{
+  background-color: rgba(233, 236, 239, 0.9);
+}
+
+.card-custom:hover{
+  background-color: rgba(233, 236, 239, 1);
+}
+
+.lined{
+  text-decoration: line-through;
+}
+
+
+/* social media */

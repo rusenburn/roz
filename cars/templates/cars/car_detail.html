@@ -1,20 +1,42 @@
 {% extends "cars/car_base.html" %}
-
+{% load static %}
 
 {% block car %}
 
-<div class="jumbotron">
-  <h3>Welcome to Car Detail Page</h3>
-  <p>id {{carmodel.pk}}</p>
-  <p>title {{carmodel.title}}</p>
-  <p>Year Model {{carmodel.year_model}} </p>
-  <p>Gear Type {% if car.autogeartype %}Automatic
-    {% else %}Manual{% endif %}</p>
-  <p>Doors {{carmodel.doors}}</p>
-  <p>Seats {{carmodel.seats}}</p>
-  <p>Base Price {{carmodel.base_price}}</p>
-  <p>Description {{carmodel.description}}</p>
-  <p>Image {{carmodel.image}}</p>
-</div>
+<div class="jumbotron jumbotron-transparent">
+  <div class="row justify-content-center">
+    <h3 class='justify-content-center'>{{carmodel.title}}</h3>
+  </div>
+  <div class='row'>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+
+          <p>Year Model</p>
+          <p>Gear Type</p>
+          <p>Doors</p>
+          <p>Seats</p>
+          <p>Daily Price</p>
+        </div>
+        <div class="col">
+
+            <p>{{carmodel.year_model}}</p>
+            <p>{% if carmodel.autogeartype %}Automatic {% else %}Manual{% endif %}</p>
+            <p>{{carmodel.doors}}</p>
+            <p>{{carmodel.seats}}</p>
+            <p>{{carmodel.base_price}}</p>
+        </div>
+      </div>
+    </div>
+      <div class="col">
+
+          <img class='img-thumbnail' src="/media/{{carmodel.image}}" alt="">
+    </div>
+    </div>
+    <div class="row">
+      <p>{{carmodel.description}}</p>
+    </div>
+  </div>
+
 
 {% endblock %}

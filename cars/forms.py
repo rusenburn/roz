@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from django import forms
-from .models import CarModel , ReservationModel
+from .models import CarModel , CarCommercialModel,ReservationModel
 
 
 class CarModelForm(ModelForm):
@@ -41,6 +41,19 @@ class CarModelForm(ModelForm):
         }
 
 
+class CarCommercialModelForm(ModelForm):
+    class Meta:
+        model = CarCommercialModel
+        fields= ('en_title' , 'ar_title' , 'featured' , 'car' , 'days' , 'price')
+
+        labels={
+            'en_title' : 'English Title' ,
+            'ar_title' : _('Arabic Title'),
+            'featured' : _('Featured'),
+            'car' : _('Car'),
+            'days' : _('Number of days'),
+            'price' : _('Price')
+        }
 
 class ReservationModelForm(ModelForm):
 

@@ -1,0 +1,23 @@
+{% extends "cars/car_base.html" %}
+
+{% block content %}
+  <div class="jumbotron">
+    {% if request.user.is_superuser %}<a href="{% url 'cars:commercial_create' %}"><button class='btn btn-primary' type="button">Add New</button></a>{% endif %}
+    <p></p>
+    <h1>List of Commercials</h1>
+    <ol>
+      {% for commercial in carcommercialmodel_list %}
+        <li><ul>
+          <li>English Title : <a href="{% url 'cars:commercial_detail' pk=commercial.pk %}">{{commercial.en_title}}</a></li>
+          <li>Featured : {{commercial.featured}}</li>
+          <li>Car : {{commercial.car}} </li>
+          <li>Days : {{commercial.days}}</li>
+          <li>Price : {{commercial.price}}</li>
+        </ul>
+        </li>
+        <br>
+      {% endfor %}
+    </ol>
+
+  </div>
+{% endblock %}

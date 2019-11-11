@@ -1,5 +1,51 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-  <h1>This is the home page</h1>
+
+  <div class="row row-home">
+    <div class="col-2">
+
+    </div>
+    <div class="jumbotron jumbotron-transparent col-4 ">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+      </div>
+    <div class="col-8">
+
+
+    </div>
+  </div>
+  <div class="row">
+
+  {% for car in carmodel_list %}
+    <div class="container col col-6 col-md-4 ">
+
+      <div class="card shadow-lg card-custom" >    {# style="width: 18rem;" #}
+        <img src="/media/{{car.image}}" class="card-img-top shadow-sm cardimage img-thumbnail" alt="...">
+
+        <div class="card-body">
+          <h5 class="card-title">{{car.title}}</h5>
+          <div class="row">
+            <div class="col col-6">
+              <p class='card-text'>Doors</p>
+              <p class='card-text'>Seats</p>
+              <p class='card-text'>Price</p>
+
+            </div>
+            <div class="col col-6">
+                <p class='card-text'>{{car.doors}}</p>
+                <p class='card-text'>{{car.seats}}</p>
+                <p class='card-text'>{{car.base_price}} JDs/day</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <p></p>
+    </div>
+
+  {% endfor %}
+</div>
+
 {% endblock %}
